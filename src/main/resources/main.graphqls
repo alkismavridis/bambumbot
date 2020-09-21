@@ -1,0 +1,113 @@
+scalar Float
+scalar JSON
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+
+
+# API
+type Query {
+    robots: [BambumRobot!]!
+    robot(robotId: ID!) : BambumRobot
+    predict(robotId: ID!, input: [Float!]!) : [Float!]!
+}
+
+type Mutation {
+    createRobot(
+        name: String!,
+        networkConfig: NetworkConfigInput!,
+        dataProviderConfig: DataProviderConfigInput!,
+        trainerConfig: TrainerConfigInput!
+    ): BambumRobot!
+
+    deleteRobot(robotId: ID!) : Boolean
+
+    loadBestState(robotId: ID!) : Boolean
+    loadState(robotId: ID!, newState: [Float!]!) : Boolean
+
+    startTraining(robotId: ID!) : TrainingData
+    stopTraining(robotId: ID!) : TrainingData
+}
+
+
+
+# TYPES
+type BambumRobot {
+    id: ID
+    name: String
+    brainConfig: NetworkConfig,
+    brainMetadata: BrainMetadata,
+    dataProviderConfig: DataProviderConfig
+    trainerConfig: TrainerConfig
+
+    bestState: [Float!]!
+    leastError: Float
+    currentState: [Float!]!
+
+    trainingData: TrainingData
+}
+
+type NetworkConfig {
+    activation: String
+    layers: [LayerConfig!]!
+}
+
+type LayerConfig {
+    type: String
+    neuronCount: Int
+    times: Int
+    activation: String
+}
+
+type BrainMetadata {
+    layerCount: Int
+    neuronCount: Int
+    synapseCount: Int
+    inputSize: Int
+    outputSize: Int
+}
+
+type DataProviderConfig {
+    type: String
+    data: JSON
+}
+
+type TrainerConfig {
+    type: String
+    data: JSON
+}
+
+type TrainingData {
+    errorBeforeTraining: Float
+    minimumError: Float
+    minimumErrorState: [Float!]!
+}
+
+
+
+# INPUT TYPES
+input DataProviderConfigInput {
+    type: String
+    data: JSON
+}
+
+input TrainerConfigInput {
+    type: String
+    data: JSON
+}
+
+input NetworkConfigInput {
+    name: String
+    activation: String
+    layers: [LayerConfigInput!]!
+}
+
+input LayerConfigInput {
+    type: String
+    neuronCount: Int
+    times: Int
+    activation: String
+}

@@ -1,0 +1,8 @@
+{
+  "activation": "SIGMOID",
+  "layers": [
+    {"type":"FULLY_CONNECTED", "neuronCount": 2},
+    {"type":"WRONG_TYPE", "neuronCount": 3},
+    {"type":"OUT", "neuronCount": 3}
+  ]
+}

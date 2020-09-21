@@ -1,0 +1,51 @@
+.RobotCreator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    display: flex;
+}
+
+.RobotCreator_window {
+    margin: auto;
+    border: 4px green solid;
+    border-radius: 10px;
+
+    position: relative;
+    width: 430px;
+    max-width: 80vw;
+    padding: 8px;
+    background-color: white;
+    overflow: auto;
+}
+
+
+/* HEADER */
+.RobotCreator_windowHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+    padding-bottom: 8px;
+}
+.RobotCreator_closeButton {}
+.RobotCreator_windowHeader h2 { margin: 0; }
+
+
+/* MAIN */
+.RobotCreator_main {
+
+}
+
+.RobotCreator_paramsSection {
+    margin-top: 16px;
+}
+
+/* FOOTER */
+.RobotCreator_footer {
+    text-align: right;
+    margin-top: 32px;
+}

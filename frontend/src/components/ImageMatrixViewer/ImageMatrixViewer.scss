@@ -1,0 +1,11 @@
+$blockSize: 1px;
+
+.ImageMatrixViewer {
+  display: grid;
+  grid-template-columns: repeat(28, $blockSize);
+  grid-auto-rows: auto;
+}
+
+.ImageMatrixViewer__block {
+  height: $blockSize;
+}

@@ -1,0 +1,6 @@
+{
+  "activation": "SIGMOID",
+  "layers": [
+    {"type":"OUT", "neuronCount": 2, "activation": "LINEAR"}
+  ]
+}

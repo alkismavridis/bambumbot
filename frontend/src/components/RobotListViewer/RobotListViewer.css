@@ -1,0 +1,60 @@
+.RobotListViewer {
+    max-height: 60vh;
+    overflow: auto;
+    padding: 16px;
+    border: 3px solid black;
+    border-radius: 10px;
+    background-image: radial-gradient(white, #bfcaff);
+}
+
+.RobotListViewer__table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 4px 2px;
+}
+
+.RobotListViewer__row {
+    cursor: pointer;
+}
+
+
+
+.RobotListViewer__headerCell {
+    background: #4d5a85;
+    color: white;
+    padding: 8px;
+    font-weight: bold;
+}
+
+.RobotListViewer__cell {
+    padding: 8px;
+    background-color: #6a8cff;
+    color: white;
+    transition: background-color 0.2s linear, text-shadow 0.2s linear;
+}
+.RobotListViewer__row:hover > .RobotListViewer__cell {
+    background-color: #8aacff;
+    text-shadow: 0 0 4px black;
+}
+.RobotListViewer__row[data-selected=true] > .RobotListViewer__cell {
+    background-color: #47a1c3;
+}
+.RobotListViewer__robotId {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.RobotListViewer__cellBut {
+    margin-right: 8px;
+}
+
+
+.RobotListViewer__buttonList {
+    margin-top: 16px;
+    text-align: right;
+}
+
+.RobotListViewer__button {
+    margin-left: 8px;
+}

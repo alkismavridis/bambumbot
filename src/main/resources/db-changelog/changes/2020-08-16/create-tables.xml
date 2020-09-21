@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet author="admin" id="20200125">
+        <createTable tableName="ROBOT">
+            <column name="ID" type="VARCHAR(36)">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="NAME" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+
+            <column name="BRAIN_CONFIG" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="BRAIN_METADATA" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="DATA_PROVIDER_CONFIG" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="TRAINER_CONFIG" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="BEST_STATE" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="CURRENT_STATE" type="MEDIUMTEXT">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="LEAST_ERROR" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <rollback>
+            <dropTable tableName="ROBOT"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

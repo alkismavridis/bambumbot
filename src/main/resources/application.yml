@@ -1,0 +1,39 @@
+# SERVER
+server.port: 8080
+
+# GRAPHQL
+graphql:
+  tools:
+    schema-location-pattern: "**/*.graphqls"
+    # Enable or disable the introspection query. Disabling it puts your server in contravention of the GraphQL
+    # specification and expectations of most clients, so use this option with caution
+    introspection-enabled: true
+
+  servlet:
+    mapping: /graphql
+    enabled: true
+    corsEnabled: true
+    # if you want to @ExceptionHandler annotation for custom GraphQLErrors
+    exception-handlers-enabled: true
+    contextSetting: PER_REQUEST_WITH_INSTRUMENTATION
+
+
+# DATABASE
+spring.liquibase.change-log: classpath:/db-changelog/changelog-master.xml
+spring.datasource.url: jdbc:h2:file:/home/alkis/data/bambumbot/bambumbot.db
+spring.datasource.driverClassName: org.h2.Driver
+spring.datasource.username: bambumbot
+spring.datasource.password: bambumbot123!
+
+spring.h2.console.enabled: true
+spring.h2.console.path: /h2
+
+
+# LOGGING
+logging.level.root: INFO
+
+
+# BAMBUMBOT
+bambumbot:
+  providers:
+    written-numbers-file: /home/alkis/data/written_numbers/mnist_train
